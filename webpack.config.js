@@ -8,7 +8,7 @@ module.exports = {
         filename: './app.js'
     },
     devServer: {
-        port: parseInt(process.env.PORT, 10) || 8080,
+        port: 8080,
         contentBase: './public',
     },
     resolve: {
