@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p",
-    "start": "webpack-dev-server --progress --colors --inline --hot"
+    "start": "webpack-dev-server --inline --hot"
   },
   "keywords": [],
   "author": "",
