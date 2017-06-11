@@ -2,10 +2,13 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
+    devtool: 'source-map',
     entry: './src/index.jsx',
     output: {
-        path: __dirname + '/public',
-        filename: './app.js'
+        // path: __dirname + '/public',
+        path: path.join(__dirname, 'public'),
+        filename: './app.js',
+        publicPath: '/public/'
     },
     devServer: {
         port: process.env.PORT || 8080,
