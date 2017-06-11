@@ -5,17 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
-    "production": "NODE_ENV=production webpack --progress -p",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "production": "webpack --progress -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "react-scripts": "1.0.7",
     "admin-lte": "^2.3.6",
     "axios": "^0.15.3",
     "babel-core": "^6.22.1",
