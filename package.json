@@ -1,12 +1,12 @@
 {
-  "name": "my-money-frontend",
+  "name": "fataweb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p",
-    "postinstall": "webpack -p --progress",
+    "heroku-postbuild": "webpack -p --progress",
     "start": "webpack-dev-server --progress --hot"
   },
   "keywords": [],
