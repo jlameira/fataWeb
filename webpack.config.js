@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
 module.exports = {
     entry: './src/index.jsx',
     output: {
@@ -8,7 +7,7 @@ module.exports = {
         filename: './app.js'
     },
     devServer: {
-        port: process.env.PORT || 8080,
+        port: 8888,
         contentBase: './public',
     },
     resolve: {
@@ -25,7 +24,11 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }),
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin('app.css'),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
         loaders: [{
