@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 module.exports = {
     entry: './src/index.jsx',
     output: {
@@ -7,7 +8,7 @@ module.exports = {
         filename: './app.js'
     },
     devServer: {
-        port: 8888,
+        port: process.env.PORT || 8080,
         contentBase: './public',
     },
     resolve: {
