@@ -3,12 +3,11 @@ const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
+    devtool: 'inline-source-map',
     entry: './src/index.jsx',
     output: {
-        // path: __dirname + '/public',
-        path: path.join(__dirname, 'public'),
+        path: __dirname + '/public',
         filename: './app.js',
-        publicPath: '/public/'
     },
     devServer: {
         port: process.env.PORT || 8080,
@@ -31,7 +30,7 @@ module.exports = {
         new ExtractTextPlugin('app.css'),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+                'NODE_ENV': JSON.stringify('production')
             }
         }),
         new webpack.optimize.UglifyJsPlugin()
