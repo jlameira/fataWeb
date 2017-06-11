@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p",
-    "heroku-postbuild": "webpack -p --progress",
+    "postinstall": "webpack -p --progress",
     "start": "webpack-dev-server --progress --hot"
   },
   "keywords": [],
