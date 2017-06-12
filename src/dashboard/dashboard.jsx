@@ -15,7 +15,6 @@ class Dashboard extends Component {
                         <ValueBox cols='12 4' color='green' icon='bus' value='Van Buritis' text='20 vagas' />
                         <ValueBox cols='12 4' color='red' icon='bus' value='Van Barreiro' text='10 vagas' />
                         <ValueBox cols='12 4' color='blue' icon='bus' value='Van Gameleira' text='15 vagas' />
-
                     </Row>
                 </Content>
             </div>
