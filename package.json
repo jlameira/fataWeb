@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",
-    "heroku-postbuild": "webpack --progress -p",
+    "heroku-postbuild": "webpack --progress  process.env.NODE_ENV='\"production\"' -p",
     "start": "node server.js"
   },
   "keywords": [],

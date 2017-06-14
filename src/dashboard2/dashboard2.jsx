@@ -11,7 +11,7 @@ export default class Dashboard2 extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { list: []}
+    this.state = { list: [] }
   }
 
   componentWillMount() {
@@ -30,8 +30,8 @@ export default class Dashboard2 extends Component {
         <ContentHeader title='Dashboard' small='Versão 1.0' />
         <Content>
           <Row>
-            {this.state.list.map(e => (
-              <ValueBox cols='12 4' color='green' icon='bus' value={`${e._00}`} text='20 vagas' />
+            {this.props.list.map(e => (
+              <ValueBox key={e} cols='12 4' color='green' icon='bus' value={`${e._00}`} text='20 vagas' />
 
             ))}
 

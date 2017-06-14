@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default props => (
-    <div>
-        <h1>Cadastro de Empresa <small>Em construção</small></h1>
-    </div>
-)
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+class Company extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Cadastro de Empresa' small='Cadastro' />
+                <Content>
+                    Cadastro de Empresa
+            </Content>
+            </div>
+        )
+    }
+}
+
+export default Company
