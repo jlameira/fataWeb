@@ -11,12 +11,17 @@ import TabsContent from '../common/tab/tabsContent'
 import TabsHeader from '../common/tab/tabsHeader'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
-import { selectTab } from '../common/tab/tabActions'
+import { selectTab, showTabs } from '../common/tab/tabActions'
+import List from './companyList'
+import Form from './companyForm'
+
+import { create } from './companyAction'
 
 class Company extends Component {
 
     componentWillMount() {
         this.props.selectTab('tabList')
+        this.props.showTabs('tabList', 'tabCreate')
 
     }
     render() {
@@ -32,8 +37,12 @@ class Company extends Component {
                             <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
                         </TabsHeader>
                         <TabsContent>
-                            <TabContent id='tabList'><h1>Lista</h1></TabContent>
-                            <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
+                            <TabContent id='tabList'>
+                                <List />
+                            </TabContent>
+                            <TabContent id='tabCreate'>
+                                <Form onSubmit={this.props.create} />
+                            </TabContent>
                             <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
                             <TabContent id='tabDelete'><h1>Deletar</h1></TabContent>
                         </TabsContent>
@@ -44,5 +53,5 @@ class Company extends Component {
         )
     }
 }
-const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create }, dispatch)
 export default connect(null, mapDispatchToProps)(Company)

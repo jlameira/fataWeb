@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'VANS_TEST_FETCH':
+    case 'COMPANY_FETCH':
       return { ...state,
         list: action.payload.data
       }

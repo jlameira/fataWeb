@@ -5,7 +5,7 @@ export default props => (
         <a href='/#/' className='logo'>
             <span className='logo-mini'><b>F</b>T</span>
             <span className='logo-lg'>
-                <i className='fa fa-money'></i>
+                <i className='fa fa-bus'></i>
                 <b> FA</b> TA
             </span>
         </a>
