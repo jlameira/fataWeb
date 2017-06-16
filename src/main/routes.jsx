@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Route, Redirect, hashHistory } from 'react-router'
 
 import Dashboard from '../dashboard/dashboard'
-import Van from '../Van/Van'
+import Van from '../van/van'
 import Company from '../company/company'
 
 export default props => (
