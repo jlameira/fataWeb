@@ -11,8 +11,8 @@ import {
   selectTab
 } from '../common/tab/tabActions'
 
-// const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1/public'
-const BASE_URL = 'http://localhost:1510/fata/v1/public'
+const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1/public'
+// const BASE_URL = 'http://localhost:1510/fata/v1/public'
 
 const INITIAL_VALUES = {}
 
