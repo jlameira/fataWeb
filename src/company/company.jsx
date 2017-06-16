@@ -15,7 +15,7 @@ import { selectTab, showTabs } from '../common/tab/tabActions'
 import List from './companyList'
 import Form from './companyForm'
 
-import { create } from './companyAction'
+import { create, update, remove } from './companyAction'
 
 class Company extends Component {
 
@@ -41,10 +41,14 @@ class Company extends Component {
                                 <List />
                             </TabContent>
                             <TabContent id='tabCreate'>
-                                <Form onSubmit={this.props.create} />
+                                <Form onSubmit={this.props.create} submitLabel='Incluir' submitClass='primary' />
                             </TabContent>
-                            <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
-                            <TabContent id='tabDelete'><h1>Deletar</h1></TabContent>
+                            <TabContent id='tabUpdate'>
+                                <Form onSubmit={this.props.update} submitLabel='Alterar' submitClass='warning' />
+                            </TabContent>
+                            <TabContent id='tabDelete'>
+                                <Form onSubmit={this.props.remove} submitLabel='Excluir' submitClass='danger' readOnly={true} />
+                            </TabContent>
                         </TabsContent>
                     </Tabs>
 
@@ -53,5 +57,5 @@ class Company extends Component {
         )
     }
 }
-const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create, update, remove }, dispatch)
 export default connect(null, mapDispatchToProps)(Company)

@@ -21,7 +21,7 @@ class Dashboard extends Component {
                 <Content>
                     <Row>
                         {this.props.list.map(e => (
-                            <ValueBox key={e._id} cols='12 4' color='green' icon='bus' value={`${e._00}`} text='20 vagas' />
+                            <ValueBox key={e._id} cols='12 4' color='green' icon='bus' value={`${e._00}`} text={e._01} />
 
                         ))}
                     </Row>

@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { getList, showUpdate, showDelete } from './companyAction'
+import { getList, showUpdate, showDelete } from './vanAction'
 
-class CompanyList extends Component {
+class VanList extends Component {
   componentWillMount() {
     this.props.getList()
 
@@ -16,8 +16,8 @@ class CompanyList extends Component {
     return list.map(cp => (
       <tr key={cp._id}>
         <td>{cp._00}</td>
-        <td>{cp._03}</td>
-        <td>{cp._04}</td>
+        <td>{cp._01}</td>
+        <td>{cp._05}</td>
         <td>
           <button className='btn btn-warning' onClick={() => this.props.showUpdate(cp)}>
             <i className='fa fa-pencil'></i>
@@ -38,9 +38,9 @@ class CompanyList extends Component {
         <table className='table'>
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Telefone</th>
-              <th>Email</th>
+              <th>Placa</th>
+              <th>Capacidade</th>
+              <th>Cidade Principal</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -55,6 +55,6 @@ class CompanyList extends Component {
     )
   }
 }
-const mapStateToProps = state => ({ list: state.company.list })
+const mapStateToProps = state => ({ list: state.van.list })
 const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate, showDelete }, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyList)
+export default connect(mapStateToProps, mapDispatchToProps)(VanList)
