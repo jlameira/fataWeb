@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import axios from 'axios'
-import ValueBox from '../common/widget/valueBox'
-import Row from '../common/layout/row'
 import { toastr } from 'react-redux-toastr'
-
-const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1'
 
 export default class Message extends Component {
 
@@ -38,8 +34,7 @@ export default class Message extends Component {
       "value": this.state.number,
       "text": this.state.message
     }
-    debugger
-    axios.post(`https://fatauni.herokuapp.com/fata/v1/protected/transport/response/${idRequisicao}`, values)
+    axios.post(`http://localhost:1510/fata/v1/protected/transport/response/${idRequisicao}`, values)
       .then(resp => {
         toastr.success('Sucesso', 'Operação realizada com sucesso.')
         event.preventDefault();
@@ -59,7 +54,7 @@ export default class Message extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
 
         <div className='input-group'>
           <br />
@@ -68,7 +63,7 @@ export default class Message extends Component {
           </label>
           <div className='col-sm-10'>
             <input
-              name="value"
+              name="valor"
               type="number"
               className='form-control'
               value={this.state.number}
@@ -81,7 +76,7 @@ export default class Message extends Component {
           <textarea value={this.state.message} onChange={this.handleChange} className="form-control" rows="3" placeholder="Escreva Mensagem...">
 
           </textarea>
-          <button className='btn btn-primary' type="submit" >
+      <button className='btn btn-primary' type="button" onClick={this.handleSubmit} >
             Enviar
           </button>
         </div>
