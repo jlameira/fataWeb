@@ -11,7 +11,7 @@ export default props => (
         <Route path='/' component={Dashboard} />
         <Route path='/van' component={Van} />
         <Route path='/company' component={Company} />
-        <Route path='/message/:id' component={Message} />
+        <Route path='/message/:idEmpresa/:idRequisicao' component={Message} />
         <Redirect from='*' to='/' />
 
     </Router>
