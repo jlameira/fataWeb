@@ -6,8 +6,12 @@ import { toastr } from 'react-redux-toastr'
 
 export default class Message extends Component {
 
+
   constructor(props) {
-    console.log(props.params)
+    const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1'
+    // const BASE_URL = 'http://localhost:1510/fata/v1/public'
+
+
     super(props)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,33 +32,47 @@ export default class Message extends Component {
   }
 
   handleSubmit(event) {
+    const config = {
+      headers: {
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZWN1cml0eSI6InRoZXJlIG5vIGV4aXN0cy4uLiAtLi0nIn0.IqYXzHIjWxQVFedGg-VpNPgm-X-jEjVksj4yi-yuZMc'
+      }
+    }
     const idRequisicao = this.state.idRequisicao
+
     const values = {
       "company": this.state.idEmpresa,
       "value": this.state.number,
       "text": this.state.message
     }
-    axios.post(`https://fatauni.herokuapp.com/fata/v1/protected/transport/response/${idRequisicao}`, values)
+    axios.post(`${BASE_URL}/protected/transport/response/${idRequisicao}`, values, config)
       .then(resp => {
         toastr.success('Sucesso', 'Operação realizada com sucesso.')
         event.preventDefault();
         this.setState({ message: '', number: 0 });
       })
       .catch(e => {
-        if (e.response) {
-          Object.keys(e.response.data).forEach(error => toastr.error('Erro ', error))
-        } else {
+        axios.post(`${BASE_URL}/public/transport/response/${idRequisicao}`, values, config)
+          .then(resp => {
+            toastr.success('Sucesso', 'Operação realizada com sucesso.')
+            event.preventDefault();
+            this.setState({ message: '', number: 0 });
+          })
+          .catch(e => {
+            if (e.response) {
+              Object.keys(e.response.data).forEach(error => toastr.error('Erro ', error))
+            } else {
 
-          toastr.error('Erro ', e.message)
-        }
+              toastr.error('Erro ', e.message)
+            }
+          })
+
       })
-
   }
 
 
   render() {
     return (
-      <form>
+      <form >
 
         <div className='input-group'>
           <br />
@@ -80,7 +98,7 @@ export default class Message extends Component {
             Enviar
           </button>
         </div>
-      </form>
+      </form >
     )
   }
 
