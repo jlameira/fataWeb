@@ -8,8 +8,7 @@ export default class Message extends Component {
 
 
   constructor(props) {
-    const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1'
-    // const BASE_URL = 'http://localhost:1510/fata/v1/public'
+
 
 
     super(props)
@@ -32,6 +31,8 @@ export default class Message extends Component {
   }
 
   handleSubmit(event) {
+    const BASE_URL = 'https://fatauni.herokuapp.com/fata/v1'
+    // const BASE_URL = 'http://localhost:1510/fata/v1/public'
     const config = {
       headers: {
         'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZWN1cml0eSI6InRoZXJlIG5vIGV4aXN0cy4uLiAtLi0nIn0.IqYXzHIjWxQVFedGg-VpNPgm-X-jEjVksj4yi-yuZMc'
