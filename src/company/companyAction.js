@@ -42,8 +42,6 @@ export function remove(values) {
 function submit(values, method) {
   return dispatch => {
     const id = values._id ? values.id : ''
-    debugger
-    console.log(values)
     axios.post(`${BASE_URL}/company/${method}${id}`, values)
       .then(resp => {
         toastr.success('Sucesso', 'Operação realizada com sucesso.')
